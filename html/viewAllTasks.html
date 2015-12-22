@@ -1,0 +1,104 @@
+<html>
+		<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="../bower_components/angular/angular.min.js"></script>
+		<script src="../bower_components/flatui/dist/js/flat-ui.min.js"></script>
+		<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../bower_components/angular/angular.min.js"></script>
+		<script src="js/viewAllTasks.js"></script>
+		<script src="js/TaskDao.js"></script>
+		<script src="js/windowControl.js"></script>
+		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="../bower_components/flatui/dist/css/flat-ui.min.css"/>
+	<head>
+		<title>Task Keeper</title>
+	</head>
+	<script type="text/javascript">
+		function showGlob(){
+			var glob = require('./js/global.js');
+			console.log(glob.global);
+		}
+	</script>
+	<body ng-app="viewAllTaskApp" ng-controller="viewAllTaskController">
+		<div class="container">
+			<div class="form-group">
+				<h1 class="logo">Tasks</h1>
+			</div>
+			<div class="row" style="float:left;margin-bottom:20px;margin-left:20px">
+				<div class="span3" style="float:left;margin-bottom:20px;margin-left:20px;">  
+					<a href="viewAllTasks.html" class="btn btn-large btn-block btn-info" style="width:80px;">Home</a>
+				</div>
+				<div class="span3" style="float:left;margin-bottom:20px;margin-left:20px;">
+					<a href="index.html" class="btn btn-large btn-block btn-info" style="width:80px;">Add</a>
+				</div>
+				<div class="span3" style="float:right;margin-bottom:20px;margin-left:20px;" align="right">
+					<a href="#" class="btn btn-large btn-block btn-info" style="width:80px;" onclick="windowControl()">Close</a>
+				</div>
+			</div>
+		</div>
+		<div class="tile">
+		<div class="row">
+			<div class="span3" align="center" style="float:left;margin-bottom:20px;margin-left:20px">
+				<input class="form-control" type="search" placeholder="Search" ng-model="search.query"/>
+			</div>
+		</div>
+		<table class="container table table-condensed table-responsive" border="1" style="width:1500;padding-left:15px;" align="center">
+			<thead class="container">
+				<tr class="palette palette-peter-river">
+					<th style="width:80px;text-align:center;">View</th>
+					<th style="width:80px;text-align:center;">Edit</th>
+					<th style="width:80px;text-align:center;">Remove</th>
+					<th style="width:150px;text-align:center;">Task Name</th>
+					<th style="width:150px;text-align:center;">HO FORM No.</th>
+					<th style="width:130px;text-align:center;">Task Level</th>
+					<th style="width:350px;text-align:center;">Mail Sub</th>
+					<th style="width:130px;text-align:center;">DEV Date</th>
+					<th style="width:130px;text-align:center;">SQA Date</th>
+					<th style="width:130px;text-align:center;">IUAT Date</th>
+					<th style="width:130px;text-align:center;">ILIVE Date</th>
+				</tr>
+			</thead>
+			<tbody class="container">
+			<tr ng-repeat="task in tasks | filter : search.query | orderBy : 'taskName'">
+				<td hidden="true">
+					{{task._id}}
+				</td>
+				<td align="center">
+					<a href="#" style="color:337ab7"><span class="fui-chat" ng-click="controls.view(task._id)"></span></a>
+				</td>
+				<td align="center">
+					<a href="#" style="color:337ab7"><span class="fui-new" ng-click="controls.edit(task._id)"></span></a>
+				</td>
+				<td align="center">
+					<a href="#" style="color:337ab7"><span class="fui-cross"ng-click="controls.remove(task._id)"></span></a>
+				</td>
+				<td>
+					{{task.taskName}}
+				</td>
+				<td>
+					{{task.hoformno}}
+				</td>
+				<td>
+					{{task.taskLevel}}
+				</td>
+				<td>
+					{{task.mailSub}}
+				</td>
+				<td>
+					{{task.devDate.getDate()}} - {{controls.monthNames[task.devDate.getMonth()]}} - {{task.devDate.getFullYear()}}
+				</td>
+				<td>
+					{{task.sqaDate.getDate()}} - {{controls.monthNames[task.sqaDate.getMonth()]}} - {{task.sqaDate.getFullYear()}}
+				</td>
+				<td>
+					{{task.iuatDate.getDate()}} - {{controls.monthNames[task.iuatDate.getMonth()]}} - {{task.iuatDate.getFullYear()}}
+				</td>
+				<td>
+					{{task.iliveDate.getDate()}} - {{controls.monthNames[task.iliveDate.getMonth()]}} - {{task.iliveDate.getFullYear()}}
+				</td>
+			</tr>
+			</tbody>
+		</table>
+		</div>
+		</div>
+	</body>
+</html>

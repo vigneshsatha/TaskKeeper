@@ -1,0 +1,16 @@
+{
+  "name": "TaskKeeper",
+  "main": "/html/viewAllTasks.html",
+  "window": {
+    "title": "Task Keeper",
+    "icon": "icon.png",
+    "toolbar": false,
+    "frame": true,
+    "fullscreen": true
+  },
+  "dependencies": {
+    "sqlite3": "3.1.0",
+    "lokijs": "1.3.10",
+    "nedb": "~1.2.1"
+  }
+}

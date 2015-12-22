@@ -1,0 +1,102 @@
+<html>
+	<head>
+		<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="../bower_components/angular/angular.min.js"></script>
+		<script src="../bower_components/flatui/dist/js/flat-ui.min.js"></script>
+		<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="js/editTask.js"></script>
+		<script src="js/TaskDao.js"></script>
+		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    	<link rel="stylesheet" href="../bower_components/flatui/dist/css/flat-ui.min.css"/>
+		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    	<link rel="stylesheet" href="../bower_components/flatui/dist/css/flat-ui.css"/>
+		<script src="../bower_components/flatui/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="../bower_components/flatui/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="../bower_components/flatui/js/bootstrap-select.js"></script>
+		<script src="../bower_components/flatui/js/bootstrap-switch.js"></script>
+		<script src="../bower_components/flatui/js/flatui-checkbox.js"></script>
+		<script src="../bower_components/flatui/js/flatui-radio.js"></script>
+		<script src="../bower_components/flatui/js/jquery.tagsinput.js"></script>
+		<script src="../bower_components/flatui/js/jquery.placeholder.js"></script>
+		<script src="../bower_components/flatui/js/jquery.stacktable.js"></script>
+		<script src="../bower_components/flatui/js/application.js"></script>			
+		<title>Task Keeper</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body ng-app="EditTask" ng-controller="EditTaskDetail" class="form-group">
+		<div class="container">
+			<div class="row" style="float:left;margin-bottom:20px;margin-left:20px">
+				<div class="span3" style="float:left;margin-bottom:20px;margin-left:20px;">  
+					<a href="viewAllTasks.html" class="btn btn-large btn-block btn-info" style="width:80px;">Home</a>
+				</div>
+				<div class="span3" style="float:left;margin-bottom:20px;margin-left:20px;">
+					<a href="index.html" class="btn btn-large btn-block btn-info" style="width:80px;">Add</a>
+				</div>
+			</div>
+		</div>
+		<div class="form-group" align="center">
+		<div class="form-group" align="left" style="width:600px;padding-left:15px;">
+			<div class="form-group">
+				<h1 class="logo">Update Task</h1>
+			</div>
+			<div class="form-group" hidden="true">
+					<input class="form-control" type="text" ng-model="task._id" ng-bind="task._id" hidden="true"/>
+			</div>
+			<div class="form-group form-group-lg">
+					<h6 class="h6 small">Task Name</h6>
+					<input class="form-control" type="text" ng-model="task.taskName"  
+					placeholder="Enter Task Name"/>
+			</div>
+			<div class="form-group form-group-lg">
+					<h6 class="h6 small">HO Form No</h6>
+					<input class="form-control" type="text" ng-model="task.hoformno"  
+					placeholder="Enter HO FORM No"/>
+			</div>
+			<div class="form-group form-group-lg">
+					<h6 class="h6 small">Mail Subject</h6>
+					<input class="form-control" type="text" ng-model="task.mailSub" 
+					placeholder="Enter Mail Subject"/>
+			</div>
+					<div class="form-group form-group-lg">
+					<h6 class="h6 small">Task Level</h6>
+					<input class="form-control" type="text" ng-model="task.taskLevel" 
+					placeholder="Enter Task Level"/>
+			</div>
+			<div class="form-group form-group-lg">
+				<h6 class="h6 small">DEV Date</h6>
+				<input class="form-control" type="date" ng-model="task.devDate" 
+				placeholder="Enter Dev Completion Date"/>
+			</div>
+			<div class="form-group form-group-lg">
+				<h6 class="h6 small">SQA Date</h6>
+				<input class="form-control" type="date" ng-model="task.sqaDate" 
+				placeholder="Enter Sqa Completion Date"/>
+			</div>
+			<div class="form-group form-group-lg">
+				<h6 class="h6 small">IUAT Date :</h6>
+				<input class="form-control" type="date" ng-model="task.iuatDate" 
+				placeholder="Enter Iuat Completion Date"/>
+			</div>
+			<div class="form-group form-group-lg">
+				<h6 class="h6 small">ILIVE Date :</h6>
+				<input class="form-control" type="date" ng-model="task.iliveDate" 
+				placeholder="Enter ILive Completion Date"/>
+			</div>
+			<div class="form-group form-group-lg">
+				<h6 class="h6 small">File List</h6>
+				<textarea class="form-control" style="height: 500px;" ng-model="task.fileList"  
+				placeholder="Enter File List"></textarea>
+			</div>
+			<div class="form-group form-group-lg">
+				<h6 class="h6 small">Remarks</h6>
+				<textarea class="form-control" ng-model="task.remarks"  
+				placeholder="Enter Task Remarks"></textarea>
+			</div>
+			<div class="row demo-row" align="center">
+					<a class="btn btn-large btn-info" ng-click="task.save()" style="width:80px;">Save</a>
+					<a class="btn btn-large btn-info" ng-click="task.clear()" style="width:80px;">Clear</a>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>
